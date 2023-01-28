@@ -31,7 +31,6 @@
 
     return {
       destroy: () => {
-        console.log(`destroy ${node.tagName}`);
         document.removeEventListener("click", handleClick, true);
       },
     };
@@ -49,7 +48,6 @@
   const handle_select = (name: string) => {
     inputVal = name;
     showDrop = false;
-    console.log(inputVal);
   };
 
   onMount(() => {
