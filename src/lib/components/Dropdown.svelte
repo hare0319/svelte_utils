@@ -35,7 +35,7 @@
     position: absolute;
     border: 1px black solid;
     background-color: gray;
-    max-height: 10rem;
+    max-height: 15rem;
     overflow-y: scroll;
     inset: 0px auto auto 0px;
     display: none;
@@ -49,7 +49,7 @@
     margin: 0rem;
   }
   li {
-    padding: 0.5rem 1rem;
+    padding: 0.2rem 0.5rem;
   }
   button {
     position: relative;

@@ -2,6 +2,7 @@
   import { onMount } from "svelte";
   import type { PageData as PageServerData } from "./$types";
   import Dropdown from "$lib/components/Dropdown.svelte";
+  import SearchBox from "$lib/components/SearchBox.svelte";
 
   export let data: PageServerData;
 
@@ -16,3 +17,4 @@
 </p>
 
 <Dropdown hintList={data.itemList} />
+<SearchBox hintList={data.itemList} />
