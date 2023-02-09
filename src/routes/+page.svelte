@@ -1,6 +1,6 @@
 <script lang="ts">
   import { onMount } from "svelte";
-  import type { PageData as PageServerData } from "./$types";
+  import type { PageServerData } from "./$types";
   import Dropdown from "$lib/components/Dropdown.svelte";
   import SearchBox from "$lib/components/SearchBox.svelte";
 
