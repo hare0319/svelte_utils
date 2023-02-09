@@ -1,16 +1,10 @@
-<script lang="ts">
-  import MovingDiv from "$lib/components/movingDiv.svelte";
-  import Plus from "$lib/icons/plus.svelte";
-  import Trash from "$lib/icons/trash.svelte";
-</script>
+<h1>Svelte Utils</h1>
 
-<h1>Moving Div</h1>
-<p>Click and drag to move following icons:</p>
-
-<MovingDiv>
-  <Plus />
-</MovingDiv>
-
-<MovingDiv>
-  <Trash />
-</MovingDiv>
+<ul>
+  <li>
+    <a href="FilteredInp">Filtered Input with Dropdown Button</a>
+  </li>
+  <li>
+    <a href="MovingDiv">Moving Div</a>
+  </li>
+</ul>

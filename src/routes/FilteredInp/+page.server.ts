@@ -14,7 +14,6 @@ export const load = (() => {
     itemList.push(word);
   }
 
-  console.log(itemList.slice(1, 10));
   return {
     itemList,
   };

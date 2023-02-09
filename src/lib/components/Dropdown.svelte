@@ -34,11 +34,12 @@
   .dropdownContent {
     position: absolute;
     border: 1px black solid;
-    background-color: gray;
+    background-color: white;
     max-height: 15rem;
     overflow-y: scroll;
     inset: 0px auto auto 0px;
     display: none;
+    z-index: 10;
   }
   .showDrop {
     display: block;

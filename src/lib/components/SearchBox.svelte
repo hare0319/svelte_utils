@@ -102,7 +102,7 @@
     position: absolute;
     inset: 0px auto auto 0px;
     border: 1px black solid;
-    background-color: gray;
+    background-color: white;
     max-height: 15rem;
     overflow-y: scroll;
   }
@@ -124,7 +124,6 @@
     background-color: transparent;
     border: none;
     width: 100%;
-    color: #e6c2c2;
     text-align: left;
     cursor: pointer;
   }
