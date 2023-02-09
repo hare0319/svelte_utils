@@ -1,2 +1,16 @@
-<h1>Welcome to SvelteKit</h1>
-<p>Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to read the documentation</p>
+<script lang="ts">
+  import MovingDiv from "$lib/components/movingDiv.svelte";
+  import Plus from "$lib/icons/plus.svelte";
+  import Trash from "$lib/icons/trash.svelte";
+</script>
+
+<h1>Moving Div</h1>
+<p>Click and drag to move following icons:</p>
+
+<MovingDiv>
+  <Plus />
+</MovingDiv>
+
+<MovingDiv>
+  <Trash />
+</MovingDiv>
