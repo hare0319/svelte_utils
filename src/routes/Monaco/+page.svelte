@@ -2,6 +2,7 @@
   import MonacoEditor from "$lib/components/MonacoEditor/MonacoEditor.svelte";
 
   let preElm: HTMLPreElement;
+  let monacoUpdated: string;
   let sample = `
 name: yaml editor
 editor: monaco editor
@@ -36,7 +37,8 @@ support:
   </pre>
   </div>
 
-  <MonacoEditor bind:scriptCtx={sample} />
+  <MonacoEditor scriptCtx={sample} bind:updatedCtx={monacoUpdated} />
+  <button on:click={() => (sample = monacoUpdated)}>Fire</button>
 </div>
 
 <style>

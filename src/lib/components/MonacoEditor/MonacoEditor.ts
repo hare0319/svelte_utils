@@ -15,13 +15,17 @@ self.MonacoEnvironment = {
 
     if (label === "json") {
       return getWorkerModule(jsonWorker, label);
+      // return new jsonWorker();
     }
     if (label === "yaml" || label === "yml") {
       return getWorkerModule(yamlWorker, label);
+      // return new yamlWorker();
     }
     if (label === "typescript" || label === "javascript") {
       return getWorkerModule(tsWorker, label);
+      // return new tsWorker();
     }
     return getWorkerModule(editorWorker, label);
+    // return new editorWorker();
   },
 };
