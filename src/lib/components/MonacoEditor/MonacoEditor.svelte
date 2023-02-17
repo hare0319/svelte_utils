@@ -3,7 +3,7 @@
   import { onMount } from "svelte";
 
   export let scriptCtx: string;
-  export let updatedCtx: string = '';
+  let updatedCtx: string = "";
 
   let monacoElm: HTMLElement;
   let editor: monaco.editor.IStandaloneCodeEditor;
@@ -25,7 +25,7 @@
     });
 
     editor.onDidChangeModelContent(() => {
-    // editor.onDidBlurEditorText(() => {
+      // editor.onDidBlurEditorText(() => {
       updatedCtx = editor.getValue();
     });
 
@@ -35,7 +35,11 @@
   });
 </script>
 
-<div bind:this={monacoElm} class="editorAnchor" />
+<div
+  bind:this={monacoElm}
+  class="editorAnchor"
+  on:change={() => (scriptCtx = updatedCtx)}
+/>
 
 <style>
   .editorAnchor {

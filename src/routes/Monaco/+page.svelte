@@ -37,8 +37,7 @@ support:
   </pre>
   </div>
 
-  <MonacoEditor scriptCtx={sample} bind:updatedCtx={monacoUpdated} />
-  <button on:click={() => (sample = monacoUpdated)}>Fire</button>
+  <MonacoEditor bind:scriptCtx={sample} />
 </div>
 
 <style>
