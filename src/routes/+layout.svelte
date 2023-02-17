@@ -4,6 +4,8 @@
       <li><a href="/">Home</a></li>
       <li><a href="/FilteredInp">Input Fields</a></li>
       <li><a href="/MovingDiv">Moving Div</a></li>
+      <li><a href="/SwitchBtn">Switch Button</a></li>
+      <li><a href="/Monaco">Monaco Editor</a></li>
     </ul>
   </nav>
 
