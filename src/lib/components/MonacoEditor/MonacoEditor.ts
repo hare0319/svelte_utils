@@ -29,3 +29,23 @@ self.MonacoEnvironment = {
     // return new editorWorker();
   },
 };
+
+monaco.editor.defineTheme("cust-vs-dark", {
+  base: "vs-dark",
+  inherit: true,
+  colors: {
+    "editor.background": "#1f2937",
+    "editor.lineHighlightBorder": "#354255",
+  },
+  rules: [],
+} satisfies monaco.editor.IStandaloneThemeData);
+
+monaco.editor.defineTheme("cust-vs", {
+  base: "vs",
+  inherit: true,
+  colors: {
+    "editor.background": "#e5e7eb",
+    "editor.lineHighlightBorder": "#cbcbcb",
+  },
+  rules: [],
+} satisfies monaco.editor.IStandaloneThemeData);

@@ -1,16 +1,31 @@
 <script lang="ts">
-  import * as monaco from "monaco-editor";
+  import type monaco from "monaco-editor";
   import { onMount } from "svelte";
 
   export let scriptCtx: string;
-  let updatedCtx: string = "";
 
   let monacoElm: HTMLElement;
   let editor: monaco.editor.IStandaloneCodeEditor;
 
-  $: editor?.setValue(scriptCtx);
+  const handle_update = (newEditorCtx: string) => {
+    if (!(editor && editor.getModel())) return;
+    const model = editor.getModel();
+    if (!model) return;
+    model.pushEditOperations(
+      [],
+      [
+        {
+          range: model.getFullModelRange(),
+          text: newEditorCtx,
+        },
+      ],
+      () => null
+    );
+    // model.setValue(newEditorCtx);
+  };
 
   onMount(async () => {
+    const monaco = await import("monaco-editor");
     await import("./MonacoEditor");
 
     editor = monaco.editor.create(monacoElm, {
@@ -18,32 +33,26 @@
       language: "yaml",
       roundedSelection: false,
       scrollBeyondLastLine: false,
-      minimap: {
-        enabled: false,
-      },
-      theme: "vs-dark",
+      theme: "cust-vs-dark",
     });
 
-    editor.onDidChangeModelContent(() => {
-      // editor.onDidBlurEditorText(() => {
-      updatedCtx = editor.getValue();
+    editor.onDidBlurEditorText(() => {
+      scriptCtx = editor.getValue();
     });
 
     return () => {
       editor.dispose();
     };
   });
+
+  $: handle_update(scriptCtx);
 </script>
 
-<div
-  bind:this={monacoElm}
-  class="editorAnchor"
-  on:change={() => (scriptCtx = updatedCtx)}
-/>
+<div bind:this={monacoElm} class="editorAnchor" />
 
 <style>
   .editorAnchor {
-    width: 100%;
-    height: 100%;
+    width: 60%;
+    height: 90vh;
   }
 </style>
