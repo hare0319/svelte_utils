@@ -2,7 +2,6 @@
   import MonacoEditor from "$lib/components/MonacoEditor/MonacoEditor.svelte";
 
   let preElm: HTMLPreElement;
-  let monacoUpdated: string;
   let sample = `
 name: yaml editor
 editor: monaco editor
@@ -21,23 +20,23 @@ support:
   <p>The editor should sync with following text</p>
 
   <div class="show">
-    <pre
-      contenteditable
-      spellcheck="false"
-      bind:this={preElm}
-      bind:textContent={sample}
-      on:blur={() => {
-        sample = preElm.innerText;
-      }}>
-    {sample}
-  </pre>
-    <div class="gap" />
-    <pre>
-    {sample}
-  </pre>
+    <MonacoEditor bind:scriptCtx={sample} />
+    <div class="half">
+      <pre
+        contenteditable
+        spellcheck="false"
+        bind:this={preElm}
+        bind:textContent={sample}
+        on:blur={() => {
+          sample = preElm.innerText;
+        }}>
+        {sample}
+      </pre>
+      <pre>
+        {sample}
+      </pre>
+    </div>
   </div>
-
-  <MonacoEditor bind:scriptCtx={sample} />
 </div>
 
 <style>
@@ -45,17 +44,30 @@ support:
     display: flex;
     flex-direction: column;
     align-items: stretch;
-    height: 50rem;
-    width: 75%;
+    height: 100vh;
+    width: 85%;
     margin-left: auto;
     margin-right: auto;
   }
   .show {
     display: flex;
     flex-direction: row;
-    border: 1px, solid, skyblue;
   }
-  .gap {
-    width: 2rem;
+  .half {
+    width: 39%;
+    height: 100%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  pre {
+    width: 100%;
+    height: 44%;
+    margin: 0;
+    overflow: auto;
+    border: 1px solid skyblue;
+    outline: none;
+    padding: 1rem;
   }
 </style>
